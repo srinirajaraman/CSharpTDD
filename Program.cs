@@ -8,7 +8,7 @@ namespace ConsoleApplication2
 {
     class Program
     {
-        public int DivideTest(int n, int d)
+        internal int DivideTest(int n, int d)
         {
             if (d == 0)
                 return -1;
@@ -16,7 +16,7 @@ namespace ConsoleApplication2
             return (n / d);
         }
 
-        public int GetMax(int[] arr)
+        internal int GetMax(int[] arr)
         {
             if (arr.Length == 0)
                 return arr[0];
@@ -34,9 +34,11 @@ namespace ConsoleApplication2
         static void Main(string[] args)
         {
             Program obj = new Program();
+			int val = obj.DivideTest(4, 4);
+            Console.WriteLine("{0}", val);
             int[] arr = { 1, 2, 3 };
             int element = obj.GetMax(arr);
-            Console.WriteLine(element);
+            Console.WriteLine("{0}", element);
             Console.ReadKey();
         }
 
