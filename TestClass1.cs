@@ -5,30 +5,47 @@ namespace ConsoleApplication2
     [TestFixture]
     class TestClass1
     {
+        Program obj = new Program();
         [Test]
         public void DivideTwoNumbers()
         {
-            Program sut = new Program();
-            int expectedResult = sut.DivideTest(7, 8);
-            Assert.That(expectedResult, Is.EqualTo(0));
-
-            int expectedResult1 = sut.DivideTest(9, 8);
-            Assert.That(expectedResult1, Is.EqualTo(1));
-
-            int expectedResult2 = sut.DivideTest(8, 8);
-            Assert.That(expectedResult2, Is.EqualTo(1));
-
-            int expectedResult3 = sut.DivideTest(8, 0);
-            Assert.That(expectedResult3, Is.EqualTo(-1));
-
+            int expectedResult = obj.DivideTest(8, 1);
+            Assert.That(expectedResult, Is.EqualTo(8));
+        }
+        [Test]
+        public void DivideTwoNumbers1()
+        {
+            int expectedResult = obj.DivideTest(18, 9);
+            Assert.That(expectedResult, Is.EqualTo(2));
+        }
+        [Test]
+        public void DivideTwoNumbers2()
+        {
+            int expectedResult = obj.DivideTest(8, 0);
+            Assert.That(expectedResult, Is.EqualTo(-1));
+        }
+        [Test]
+        public void GetMaxElement()
+        {
             int[] iarray = new int[] { 2, 1, 3 };
-            int maxElement1 = sut.GetMax(iarray);
+            int maxElement1 = obj.GetMax(iarray);
             Assert.That(maxElement1, Is.EqualTo(3));
-
-            int[] iarray1 = new int[] { 1, 5, 9, 2, 3, 7, 8 };
-            int maxElement2 = sut.GetMax(iarray);
-            Assert.That(maxElement2, Is.EqualTo(9));
+        }
+        [Test]
+        public void GetMaxElement1()
+        {
+            int[] iarray = new int[] { 7, 3, 5, 1, 6 };
+            int maxElement1 = obj.GetMax(iarray);
+            Assert.That(maxElement1, Is.EqualTo(7));
         }
 
+        [Test]
+        public void GetMaxElement2()
+        {
+            int[] iarray = new int[] { 9 };
+            int maxElement1 = obj.GetMax(iarray);
+            Assert.That(maxElement1, Is.EqualTo(9));
+        }
+        
     }
 }
