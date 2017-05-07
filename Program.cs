@@ -54,6 +54,24 @@ namespace ConsoleApplication2
                 return BinarySearchUtil(arr, low, mid - 1, target);
         }
 
+        internal bool LinearSearch(int[] arr, int key)
+        {
+            if (arr.Length == 1 && arr[0] == key)
+                return true;
+
+            bool res = false;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == key)
+                {
+                    //If element found update the res and break;
+                    res = true;
+                    break;
+                }
+            }
+
+            return res;
+        }
         static void Main(string[] args)
         {
             Program obj = new Program();
@@ -65,6 +83,8 @@ namespace ConsoleApplication2
 			int[] arr = new int[] { 1, 2, 3, 4, 5 };
             int key1 = 1;
             int res = obj.BinarySearch(arr, key1);
+            Console.WriteLine("Target element found at {0}", res);
+            bool res = obj.LinearSearch(arr, 2);
             Console.WriteLine("Target element found at {0}", res);
             Console.ReadKey();
         }

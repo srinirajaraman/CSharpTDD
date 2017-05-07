@@ -53,6 +53,12 @@ namespace ConsoleApplication2
             int maxElement1 = obj.BinarySearch(iarray, 8);
             Assert.That(maxElement1, Is.EqualTo(iarray.Length - 1));
         }
-        
+        [Test]
+        public void LinearSearch()
+        {
+            int[] iarray = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+            bool maxElement1 = obj.LinearSearch(iarray, 8);
+            Assert.That(maxElement1, Is.EqualTo(true));
+        }
     }
 }
