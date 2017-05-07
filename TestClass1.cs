@@ -50,7 +50,8 @@ namespace ConsoleApplication2
         public void BinarySearch()
         {
             int[] iarray = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
-            int maxElement1 = obj.BinarySearch(iarray, 8);
+            bool iterRecur = true;
+            int maxElement1 = obj.BinarySearch(iarray, 8, iterRecur);
             Assert.That(maxElement1, Is.EqualTo(iarray.Length - 1));
         }
         [Test]

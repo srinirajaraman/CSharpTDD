@@ -33,7 +33,10 @@ namespace ConsoleApplication2
 		internal int BinarySearch(int[] arr, int target)
         {
             int low = 0, high = arr.Length - 1;
-            int res = BinarySearchUtil(arr, low, high, target);
+            if (iterRecur)
+                res = BinarySearchRecur(arr, low, high, target);
+            else
+                res = BinarySearchIterative(arr, low, high, target);
             return res;
         }
 
@@ -53,7 +56,23 @@ namespace ConsoleApplication2
             else
                 return BinarySearchUtil(arr, low, mid - 1, target);
         }
-
+        private int BinarySearchIterative(int[] arr, int low, int high, int target)
+        {
+            //Base case with 1 element
+            if (arr.Length == 1)
+                return -1;
+            while (low <= high)
+            {
+                int mid = (low + high) / 2;
+                if (arr[mid] == target)
+                    return mid;
+                if (arr[mid] < target)
+                    low = mid + 1;
+                else
+                    high = mid - 1;
+            }
+            return -1;
+        }
         internal bool LinearSearch(int[] arr, int key)
         {
             if (arr.Length == 1 && arr[0] == key)
@@ -82,10 +101,13 @@ namespace ConsoleApplication2
             Console.WriteLine("{0}", element);
 			int[] arr = new int[] { 1, 2, 3, 4, 5 };
             int key1 = 1;
-            int res = obj.BinarySearch(arr, key1);
+            bool iterRecur = false;
+            int res = obj.BinarySearch(arr, key1, iterRecur);
             Console.WriteLine("Target element found at {0}", res);
             bool res = obj.LinearSearch(arr, 2);
             Console.WriteLine("Target element found at {0}", res);
+            //Choose the particular implementation
+            
             Console.ReadKey();
         }
 
