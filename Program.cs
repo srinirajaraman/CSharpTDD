@@ -188,6 +188,32 @@ namespace ConsoleApplication2
             return false;
         }
 		
+		//Check if 3 numbers add upto a given sum in an array
+        internal bool CheckThreeSum(int[] arr, int sum)
+        {
+            //Null check 
+            if (arr.Length == 0)
+                return false;
+
+            Array.Sort(arr);
+            for (int i = 0; i < arr.Length - 2; i++)
+            {
+                int left = i + 1;
+                int right = arr.Length - 1;
+                while (left < right)
+                {
+                    if ((arr[i] + arr[left] + arr[right]) == sum)
+                        return true;
+
+                    if ((arr[i] + arr[left] + arr[right]) < sum)
+                        left++;
+                    else
+                        right--;
+                }
+            }
+            return false;
+        }
+		
         static void Main(string[] args)
         {
             Program obj = new Program();
@@ -229,6 +255,12 @@ namespace ConsoleApplication2
             bool result1 = obj.CheckTwoSum(arr3, sum3);
             Console.WriteLine("{0}", result1);
             Console.ReadKey();
+			
+			//Check if array contains 3 numbers that add upto a given sum 
+            int[] arr4 = { 3, 2, 1, 4, 8 };
+            int sum4 = 13;
+            bool result2 = obj.CheckThreeSum(arr4, sum4);
+            Console.WriteLine("{0}", result2);
         }
 
        

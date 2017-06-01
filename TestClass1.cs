@@ -147,5 +147,31 @@ namespace ConsoleApplication2
             bool result2 = obj.CheckTwoSum(arr4, sum4);
             Assert.That(result2, Is.EqualTo(true));
         }
+		
+		//Check if the array contains 3 numbers that add up to a given sum
+        [Test]
+        public void ThreeSumTest()
+        {
+            int[] arr = { 6, 5, 4, 3, 2, 1 };
+            int sum = 25;
+            bool result = obj.CheckThreeSum(arr, sum);
+            Assert.That(result, Is.EqualTo(false));
+        }
+        [Test]
+        public void ThreeSumTest1()
+        {
+            int[] arr1 = { 3, 2, 1, 4, 8 };
+            int sum1 = 13;
+            bool result1 = obj.CheckThreeSum(arr1, sum1);
+            Assert.That(result1, Is.EqualTo(true));
+        }
+        [Test]
+        public void ThreeSumTest2()
+        {
+            int[] arr2 = { 1, 9, 8, 7, 0, 45 };
+            int sum2 = 54;
+            bool result2 = obj.CheckThreeSum(arr2, sum2);
+            Assert.That(result2, Is.EqualTo(true));
+        }
     }
 }
