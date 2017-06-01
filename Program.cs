@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApplication2
 {
@@ -166,7 +162,32 @@ namespace ConsoleApplication2
             return true;
         }
 
+		//Check if array contains 2 numbers that add upto a given sum 
+        internal bool CheckTwoSum(int[] arr, int sum)
+        {
+            //Null check 
+            if (arr.Length == 0)
+                return false;
 
+            if (arr.Length == 2 && (arr[0] + arr[1]) == sum)
+                return true;
+
+            Array.Sort(arr);
+            int left = 0, right = arr.Length - 1;
+
+            while (left < right)
+            {
+                if ((arr[left] + arr[right]) == sum)
+                    return true;
+
+                if (arr[left] + arr[right] < sum)
+                    left++;
+                else
+                    right--;
+            }
+            return false;
+        }
+		
         static void Main(string[] args)
         {
             Program obj = new Program();
@@ -180,7 +201,7 @@ namespace ConsoleApplication2
             int element = obj.GetMax(arr);
             Console.WriteLine("{0}", element);
 			
-			 //Check for a given element in a sorted using Binary search 
+			//Check for a given element in a sorted using Binary search 
 			int[] arr = new int[] { 1, 2, 3, 4, 5 };
             int key1 = 1;
             bool iterRecur = false;
@@ -201,10 +222,12 @@ namespace ConsoleApplication2
             bool result = obj.PalindromeCheck(str);
             Console.WriteLine("{0}", result);
 			
-			//Check if the string is a palindrome
-            string str = "aba";
-            bool result = obj.PalindromeCheck(str);
-            Console.WriteLine("{0}", result);
+			
+			//Check if array contains 2 numbers that add upto a given sum 
+            int[] arr3 = { 6, 5, 4, 3, 2, 1, 9, 8, 7 };
+            int sum3 = 18;
+            bool result1 = obj.CheckTwoSum(arr3, sum3);
+            Console.WriteLine("{0}", result1);
             Console.ReadKey();
         }
 

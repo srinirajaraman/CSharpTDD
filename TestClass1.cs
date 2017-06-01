@@ -121,5 +121,31 @@ namespace ConsoleApplication2
             bool result = obj.PalindromeCheck(str);
             Assert.That(result, Is.EqualTo(false));
         }
+		
+		//Check if the array contains 2 numbers that add up to a given sum
+        [Test]
+        public void TwoSumTest()
+        {
+            int[] arr = { 6, 5, 4, 3, 2, 1 };
+            int sum = 71;
+            bool result = obj.CheckTwoSum(arr, sum);
+            Assert.That(result, Is.EqualTo(false));
+        }
+        [Test]
+        public void TwoSumTest1()
+        {
+            int[] arr1 = { 3, 2, 1, 4 };
+            int sum1 = 7;
+            bool result1 = obj.CheckTwoSum(arr1, sum1);
+            Assert.That(result1, Is.EqualTo(true));
+        }
+        [Test]
+        public void TwoSumTest2()
+        {
+            int[] arr4 = { 6, 5, 4, 3, 2, 1, 9, 8, 7 };
+            int sum4 = 17;
+            bool result2 = obj.CheckTwoSum(arr4, sum4);
+            Assert.That(result2, Is.EqualTo(true));
+        }
     }
 }
