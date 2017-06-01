@@ -136,6 +136,37 @@ namespace ConsoleApplication2
             }
             return maxCount;
         }
+
+        //Check if the string is a palindrome in O(n) time complexity
+        internal bool PalindromeCheck(string str)
+        {
+            int startInd = 0;
+            int endInd = str.Length - 1;
+            bool res = Palindrome(str, startInd, endInd);
+            return res;
+        }
+        private bool Palindrome(string str, int startInd, int endInd)
+        {
+            //Null check 
+            if (str.Length == 0)
+                return true;
+
+            int i = startInd;
+            int j = endInd;
+
+            while (i < j)
+            {
+                if (str[i] != str[j])
+                    return false;
+
+                i++;
+                j--;
+            }
+
+            return true;
+        }
+
+
         static void Main(string[] args)
         {
             Program obj = new Program();
@@ -164,7 +195,16 @@ namespace ConsoleApplication2
             int[] arr2 = { 1, 1, 0, 1, 1, 1 };
             int maxCount = obj.GetConsecutiveOnes(arr2);
             Console.WriteLine("{0}", maxCount);
-            
+
+            //Check if the string is a palindrome
+            string str = "malayalam";
+            bool result = obj.PalindromeCheck(str);
+            Console.WriteLine("{0}", result);
+			
+			//Check if the string is a palindrome
+            string str = "aba";
+            bool result = obj.PalindromeCheck(str);
+            Console.WriteLine("{0}", result);
             Console.ReadKey();
         }
 

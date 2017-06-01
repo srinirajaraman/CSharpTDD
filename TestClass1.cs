@@ -98,5 +98,28 @@ namespace ConsoleApplication2
             int maxCount5 = obj.GetConsecutiveOnes(arr5);
             Assert.That(maxCount5, Is.EqualTo(4));
         }
+		
+		 //Check if the string is a palindrome
+        [Test]
+        public void PalindromeTest()
+        {
+            string str = "RadAr";
+            bool result = obj.PalindromeCheck(str);
+            Assert.That(result, Is.EqualTo(true));
+        }
+        [Test]
+        public void PalindromeTest1()
+        {
+            string str = "AAbbCCbbaa";
+            bool result = obj.PalindromeCheck(str);
+            Assert.That(result, Is.EqualTo(true));
+        }
+        [Test]
+        public void PalindromeTest2()
+        {
+            string str = "ABBHHTR";
+            bool result = obj.PalindromeCheck(str);
+            Assert.That(result, Is.EqualTo(false));
+        }
     }
 }
